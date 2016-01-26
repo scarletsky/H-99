@@ -1,4 +1,4 @@
--- (*) Find the last element of a list.
+-- 1. (*) Find the last element of a list.
 
 myLast1 :: [a] -> a
 myLast1 []     = error "Empty list"
@@ -15,14 +15,14 @@ myLast3 (x:[]) = x
 myList3 (_:xs) = myLast3 xs
 
 
--- (*) Find the last but one element of a list.
+-- 2. (*) Find the last but one element of a list.
 myButLast :: [a] -> a
 myButLast []       = error "Empty List"
 myButLast (x:_:[]) = x 
 myButLast (_:xs)   = myButLast xs
 
 
--- (*) Find the K'th element of a list. The first element in the list is number 1.
+-- 3. (*) Find the K'th element of a list. The first element in the list is number 1.
 elementAt [] _       = error "Empty list"
 elementAt (x:_) 1    = x
 elementAt all@(_:xs) n
@@ -31,12 +31,12 @@ elementAt all@(_:xs) n
     | otherwise      = elementAt xs (n-1)
 
 
--- (*) Find the number of elements of a list.
+-- 4. (*) Find the number of elements of a list.
 myLength :: (Num b) => [a] -> b
 myLength []     = 0
 myLength (_:xs) = 1 + myLength xs
 
--- (*) Reverse a list.
+-- 5. (*) Reverse a list.
 myReverse :: [a] -> [a]
 myReverse []     = []
 myReverse (x:xs) = myReverse xs ++ [x]
