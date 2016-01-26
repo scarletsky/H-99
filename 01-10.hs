@@ -36,7 +36,15 @@ myLength :: (Num b) => [a] -> b
 myLength []     = 0
 myLength (_:xs) = 1 + myLength xs
 
+
 -- 5. (*) Reverse a list.
 myReverse :: [a] -> [a]
 myReverse []     = []
 myReverse (x:xs) = myReverse xs ++ [x]
+
+
+-- 6. (*) Find out whether a list is a palindrome. A palindrome can be read forward or backward; e.g. (x a m a x).
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == myReverse xs 
+
+
