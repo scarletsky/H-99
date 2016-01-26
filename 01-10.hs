@@ -35,3 +35,8 @@ elementAt all@(_:xs) n
 myLength :: (Num b) => [a] -> b
 myLength [] = 0
 myLength (_:xs) = 1 + myLength xs
+
+-- (*) Reverse a list.
+myReverse :: [a] -> [a]
+myReverse []     = []
+myReverse (x:xs) = myReverse xs ++ [x]
