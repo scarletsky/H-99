@@ -30,3 +30,8 @@ elementAt all@(_:xs) n
     | n > length all = error "Index should less than list's length"
     | otherwise      = elementAt xs (n-1)
 
+
+-- (*) Find the number of elements of a list.
+myLength :: (Num b) => [a] -> b
+myLength [] = 0
+myLength (_:xs) = 1 + myLength xs
