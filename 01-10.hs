@@ -55,3 +55,10 @@ flatten (Elem x)      = [x]
 flatten (List [])     = []
 flatten (List (x:xs)) = flatten x ++ flatten (List xs)
 
+
+-- 8 (**) Eliminate consecutive duplicates of list elements.
+compress xs = foldl f [] xs
+    where f acc x
+            | x `elem` acc = acc
+            | otherwise    = acc ++ [x]
+
