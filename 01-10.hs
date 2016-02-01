@@ -71,3 +71,7 @@ pack (x:xs) = (x:ys) : pack zs
     where (ys, zs) = span ((==) x) xs
 
 pack' xs = group xs
+
+-- 10 (*) Run-length encoding of a list. Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
+encode :: (Eq a) => [a] -> [(Int, a)]
+encode = map (\ys -> (length ys, head ys)) . pack
