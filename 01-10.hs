@@ -1,3 +1,5 @@
+import Data.List
+
 -- 1. (*) Find the last element of a list.
 
 myLast1 :: [a] -> a
@@ -62,3 +64,10 @@ compress xs = foldl f [] xs
             | x `elem` acc = acc
             | otherwise    = acc ++ [x]
 
+-- 9 (**) Pack consecutive duplicates of list elements into sublists. If a list contains repeated elements they should be placed in separate sublists.
+pack :: (Eq a) => [a] -> [[a]]
+pack [] = []
+pack (x:xs) = (x:ys) : pack zs
+    where (ys, zs) = span ((==) x) xs
+
+pack' xs = group xs
