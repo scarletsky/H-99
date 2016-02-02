@@ -7,3 +7,8 @@ data Code = Single Char
 
 encodeModified = map (\(all@(y:ys)) -> if (length all == 1) then Single y else Multiple (length all) y) . group
 
+-- 12 (**) Decode a run-length encoded list.
+decodeModified [] = []
+decodeModified ((Single x):xs) = x : decodeModified xs
+decodeModified ((Multiple n x):xs) = replicate n x ++ decodeModified xs
+
