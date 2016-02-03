@@ -29,3 +29,19 @@ repli [] _     = []
 repli (x:xs) n = replicate n x ++ repli xs n
 
 repli' xs n = concatMap (\x -> replicate n x) xs
+
+
+-- 16 (**) Drop every N'th element from a list.
+dropEvery xs n = map snd $ filter f xs'
+    where xs' = zip [1..] xs
+          f (i, _) = i `mod` n /= 0
+
+dropEvery' [] _  = []
+dropEvery' xs n 
+    | n <= 0     = xs
+    | otherwise  = hs ++ dropEvery t n
+    where (h, t) = splitAt n xs
+          hs     = if (length h < n)
+                   then h 
+                   else init h 
+
