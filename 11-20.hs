@@ -22,3 +22,10 @@ dupli (x:xs) = x : x : dupli xs
 dupli' :: [a] -> [a]
 dupli' = concatMap (\x -> x : [x])
 
+
+-- 15 (**) Replicate the elements of a list a given number of times.
+repli :: [a] -> Int -> [a]
+repli [] _     = []
+repli (x:xs) n = replicate n x ++ repli xs n
+
+repli' xs n = concatMap (\x -> replicate n x) xs
