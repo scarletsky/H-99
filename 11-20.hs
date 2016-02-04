@@ -53,3 +53,11 @@ split xs     0   = ([], xs)
 split (x:xs) n   = (x : h, t)
     where (h, t) = split xs (n - 1)
 
+
+-- 18 (**) Extract a slice from a list.
+slice :: [a] -> Int -> Int -> [a]
+slice [] _ _        = []
+slice xs i k        = map snd $ filter f xs'
+    where xs'       = zip [1..] xs
+          f (i', _) = (i' >= i && i' <= k)
+
