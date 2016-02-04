@@ -45,3 +45,11 @@ dropEvery' xs n
                    then h 
                    else init h 
 
+
+-- 17 (*) Split a list into two parts; the length of the first part is given.
+split :: [a] -> Int -> ([a], [a])
+split []     _   = ([], [])
+split xs     0   = ([], xs)
+split (x:xs) n   = (x : h, t)
+    where (h, t) = split xs (n - 1)
+
