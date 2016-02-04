@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleContexts #-}
+
 import System.Random
 
 -- 21 Insert an element at a given position into a list.
@@ -23,4 +25,9 @@ range' i j = [i..j]
 rndSelect xs n = do
     gen <- getStdGen
     return $ map (xs !!) . take n $ randomRs (0, length xs - 1) gen
+
+
+-- 24 Lotto: Draw N different random numbers from the set 1..M.
+diffSelect n m = map f [0..n]
+    where f x = head $ randomRs (0, m) (mkStdGen x)
 
