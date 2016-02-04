@@ -61,3 +61,11 @@ slice xs i k        = map snd $ filter f xs'
     where xs'       = zip [1..] xs
           f (i', _) = (i' >= i && i' <= k)
 
+
+-- 19 (**) Rotate a list N places to the left.
+rotate :: [a] -> Int -> [a]
+rotate [] _  = []
+rotate xs n  = snd ys ++ fst ys
+    where ys = split xs n'
+          n' | n >= 0 = n
+             | n < 0  = length xs - abs n
