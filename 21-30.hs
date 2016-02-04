@@ -1,3 +1,5 @@
+import System.Random
+
 -- 21 Insert an element at a given position into a list.
 insertAt :: a -> [a] -> Int -> [a]
 insertAt x ys i = take (i - 1) ys ++ x : drop (i - 1) ys
@@ -15,4 +17,10 @@ range i j
     | otherwise = i : range (i+1) j
 
 range' i j = [i..j]
+
+
+-- 23 Extract a given number of randomly selected elements from a list.
+rndSelect xs n = do
+    gen <- getStdGen
+    return $ map (xs !!) . take n $ randomRs (0, length xs - 1) gen
 
