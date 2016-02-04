@@ -69,3 +69,14 @@ rotate xs n  = snd ys ++ fst ys
     where ys = split xs n'
           n' | n >= 0 = n
              | n < 0  = length xs - abs n
+
+
+-- 20 (*) Remove the K'th element from a list.
+-- removeAt :: Int -> [a] -> ([a], [a])
+removeAt _ []     = ([], [])
+removeAt 1 (x:xs) = ([x], xs)
+removeAt n (x:xs)
+    | n < 1       = error "index should greater than 0"
+    | otherwise   = (h, x:t)
+    where (h, t)  = removeAt (n - 1) xs
+
