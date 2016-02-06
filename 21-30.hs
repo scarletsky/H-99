@@ -38,3 +38,10 @@ diffSelect' n m = do
 
 diffSelect'' n m = rndSelect [0..m] n
 
+
+-- 25 Generate a random permutation of the elements of a list.
+rndPermu xs = do
+    gen <- getStdGen
+    let n = length xs
+    return $ map (xs !!) $ take n $ nub (randomRs (0, length xs - 1) gen)
+
