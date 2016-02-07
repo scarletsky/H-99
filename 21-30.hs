@@ -45,3 +45,9 @@ rndPermu xs = do
     let n = length xs
     return $ map (xs !!) $ take n $ nub (randomRs (0, length xs - 1) gen)
 
+
+-- 26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list
+combinations _ [] = []
+combinations 1 xs = map (\x -> [x]) xs
+combinations n (x:xs) = combinations n xs ++ (map (x:) $ combinations (n-1) xs)
+
