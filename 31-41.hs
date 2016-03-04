@@ -19,3 +19,5 @@ coprime' x y = myGCD' x y == 1
 -- 34 (**) Calculate Euler's totient function phi(m).
 totient x = (length . filter f) [1..x]
     where f y = coprime' y x
+
+totient' n = length [x | x <- [1..n], coprime' x n]
