@@ -15,3 +15,7 @@ myGCD' x y = myGCD' y (x `mod` y)
 coprime x y = if (myGCD' x y == 1) then True else False
 
 coprime' x y = myGCD' x y == 1
+
+-- 34 (**) Calculate Euler's totient function phi(m).
+totient x = (length . filter f) [1..x]
+    where f y = coprime' y x
