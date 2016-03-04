@@ -7,3 +7,6 @@ isPrime n = 0 `notElem` (map f [2..(n-1)])
 
 -- 32 (**) Determine the greatest common divisor of two positive integer numbers.
 myGCD x y = if (x `mod` y == 0) then y else myGCD y (x `mod` y)
+
+myGCD' x 0 = abs x
+myGCD' x y = myGCD y (x `mod` y)
